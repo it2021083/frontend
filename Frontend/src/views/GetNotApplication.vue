@@ -1,4 +1,5 @@
 <template>
+  <div class="window">
   <div class="container">
   <div class="card">
     <h1>Notifications</h1>
@@ -14,6 +15,7 @@
     <div v-if="data && data.length === 0">No notifications available.</div>
   </div>
   </div>
+  </div>
 </template>
 
 <script setup>
@@ -22,9 +24,12 @@ import { useRemoteDataGET } from '@/composables/useRemoteDataGET.js';
 const { data, error, loading } = useRemoteDataGET('http://localhost:3030/api/Farmer/get/not', true);
 </script>
 <style>
-.container {
+.window{
   background: linear-gradient(to right, #7ed56f, #28b485);
-  width: 300%;
+}
+.container {
+
+  width: 400%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,8 +45,6 @@ const { data, error, loading } = useRemoteDataGET('http://localhost:3030/api/Far
   border-radius: 8px;
   text-align: center;
 }
-
-
 
 .list {
   margin-top: 20px;
@@ -59,6 +62,7 @@ ul {
   border-radius: 4px;
   background-color: #303b62;
   color:white;
+  cursor: pointer;
 }
 
 .notify:hover {
